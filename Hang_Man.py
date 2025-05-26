@@ -2,7 +2,46 @@
 import random
 Given_num_list = ["one", "two", "three", "four"]
 random_num = random.choice(Given_num_list)
-print(random_num)
+Hang_man_status=['''
+       _______
+     |/      |
+     |      (_)
+     |      \\|/
+     |       |
+     |      / \\
+     |
+     |______________''',
+      '''
+       _______
+     |/      |
+     |      (_)
+     |      \\|/
+     |       
+     |      
+     |
+     |_______________''',
+     
+     '''
+       _______
+     |/      |
+     |      (_)
+     |      
+     |      
+     |      
+     |
+     |______________''',
+     '''
+       _______
+     |/      |
+     |      
+     |      
+     |       
+     |      
+     |
+     |______________ ''' 
+     ]
+     
+
 print(f' {(len(random_num))* "_ "} fill the blanks with letters \n')
 
 switch = False
@@ -23,8 +62,10 @@ while  not switch:
     if "_" not in dummy:
         switch = True
         print("You Win😊")
-    elif total_lifes == 0:
-        switch = True
-        print("You Loose😒")
-        
+    if guessed_letter not in random_num:
+        total_lifes -=1
+        if total_lifes == 0:
+            switch = True
+            print("You Loose😒")
+    print(Hang_man_status[total_lifes])    
         
